@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SCAJ2026 2日目ふりかえり</title>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="SCAJ2026 2日目ふりかえり">
+<meta property="og:description" content="10/15 ブースでの来場者との会話と、1日目からの変化をまとめました">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23ffc800'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='22' font-weight='900' font-family='sans-serif' fill='%2317191c'%3E2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17191c;--paper:#fbfaf6;--sign:#ffc800;--rule:#cfccc1;--block:#efede5;--mute:#585b60;
+  --hit:#ffe066;--q:#cfe6ff;--snag:#ffd0cc;--win:#c9f0d3;
+  --sans:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 15px/1.8 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body,p,li,dd,dt,span,small,button,a,h1,h2,h3{word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere}
+h1,h2,h3{text-wrap:balance;line-height:1.35}
+p{text-wrap:pretty}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.cover{background:var(--sign);padding:14px 0 26px}
+.cover-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:700 13px/1.5 var(--mono);letter-spacing:.08em;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.cover h1{margin:26px 0 12px;font:900 clamp(30px,8.5vw,52px)/1.25 var(--sans)}
+.cover h1 .en{display:block;font:700 clamp(18px,4.6vw,24px)/1 var(--mono);letter-spacing:.02em;margin-bottom:10px}
+.cover .lead{font-weight:500;max-width:36em}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+nav.toc a{font:700 13px/1 var(--sans);text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:8px 12px;background:var(--paper)}
+
+section.blk{margin-top:44px}
+.sec-h{border-top:4px solid var(--ink);padding-top:10px;margin-bottom:18px}
+.sec-h .no{font:700 13px/1 var(--mono);letter-spacing:.1em}
+.sec-h h2{font-size:26px;font-weight:900;margin-top:6px}
+.sec-h p{color:var(--mute);font-size:14px;margin-top:4px}
+h3{font-size:18px;font-weight:900;margin:26px 0 10px}
+
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.num{background:var(--block);border-radius:6px;padding:12px 14px}
+.num b{display:block;font:700 30px/1.1 var(--mono)}
+.num span{font-size:13px;color:var(--mute)}
+.note{font-size:13px;color:var(--mute);margin-top:8px}
+
+ol.big,ul.list{padding-left:1.4em}
+ol.big li{margin:0 0 14px;padding-left:4px}
+ol.big li b{font-weight:900}
+ul.list li{margin-bottom:6px}
+.why{display:block;color:var(--mute);font-size:14px}
+
+.qa{border:2px solid var(--ink);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.qa .q{background:var(--q);padding:10px 14px;font-weight:700}
+.qa .q small{font:700 12px var(--mono);margin-left:6px;color:var(--mute)}
+.qa .a{padding:10px 14px}
+.qa .a .say{display:block;margin-top:6px;padding-left:10px;border-left:4px solid var(--sign);font-weight:500}
+
+.voices{display:grid;gap:10px}
+.voice{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:12px 14px}
+.voice q{font-weight:700;quotes:"「" "」"}
+.voice .tag{font:700 11px/1 var(--mono);display:inline-block;padding:4px 6px;border-radius:4px;margin-right:6px;vertical-align:2px}
+.voice .so{display:block;font-size:14px;color:var(--mute);margin-top:4px}
+
+mark{padding:0 2px;border-radius:2px;color:inherit}
+mark.hit{background:var(--hit)}mark.q{background:var(--q)}mark.snag{background:var(--snag)}mark.win{background:var(--win)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;margin-bottom:12px}
+
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;position:sticky;top:0;background:var(--paper);padding:8px 0;z-index:2;border-bottom:1px solid var(--rule)}
+.filters button{border:2px solid var(--ink);background:transparent;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.card{border:2px solid var(--ink);border-radius:8px;margin-bottom:12px;background:#fff}
+.card summary{list-style:none;cursor:pointer;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:2px 10px}
+.card summary::-webkit-details-marker{display:none}
+.card .t{font:700 14px/1.6 var(--mono)}
+.card .who{font-weight:700}
+.card .kind{font:700 11px/1 var(--sans);border:1.5px solid var(--ink);border-radius:4px;padding:3px 5px;margin-right:6px;white-space:nowrap}
+.card .sum{grid-column:2;font-size:14px}
+.card .body{border-top:1px dashed var(--rule);padding:12px 14px}
+.talk{display:grid;gap:6px;margin-bottom:12px}
+.talk p{font-size:14px}
+.talk .sp{font-weight:700;font-size:12px;display:inline-block;min-width:4.5em;color:var(--mute)}
+.talk .sp.tsuyo{color:var(--ink)}
+.marks{display:grid;gap:4px;font-size:14px}
+.marks div{padding:4px 8px;border-radius:4px}
+.res{margin-top:8px;font-size:13px;color:var(--mute)}
+.card.imp{border-width:3px;border-left-width:10px}
+.card.follow{border-color:#d6402b;background:#fff6f4}
+.card.learn{border-color:var(--sign);background:#fffbe8}
+.card .star{grid-column:1/-1;justify-self:start;font:900 13px/1 var(--sans);padding:5px 8px;border-radius:4px;color:#fff;background:#d6402b}
+.card.learn .star{background:var(--sign);color:var(--ink)}
+.card .why2{grid-column:1/-1;font-weight:700;font-size:14px;margin-bottom:4px}
+.filters button.f-follow{border-color:#d6402b;color:#d6402b}
+.filters button.f-follow[aria-pressed="true"]{background:#d6402b;color:#fff}
+.filters button.f-learn{background:#fffbe8}
+.filters button.f-learn[aria-pressed="true"]{background:var(--sign);color:var(--ink)}
+.shots{border:2px dashed var(--ink);border-radius:8px;margin-bottom:12px;padding:10px 12px;background:var(--block)}
+.shots h4{font:700 13px/1.5 var(--sans);margin-bottom:8px}
+.shots h4 .mono{font-family:var(--mono);margin-right:6px}
+.shots .row{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.shots button{flex:0 0 auto;border:0;padding:0;background:none;scroll-snap-align:start}
+.shots .tk{font-size:12px;line-height:1.6;margin-top:4px;color:var(--mute)}.shots .tk b{font-family:var(--mono);color:var(--ink);margin-right:4px}
+.shots img{display:block;height:112px;width:auto;border-radius:4px;background:var(--rule)}
+dialog.lb{border:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;padding:0}
+dialog.lb::backdrop{background:rgba(0,0,0,.88)}
+dialog.lb .in{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;padding:12px}
+dialog.lb img{max-width:100%;max-height:calc(100vh - 90px);object-fit:contain}
+dialog.lb .bar{display:flex;gap:8px}
+dialog.lb button{border:2px solid #fff;background:transparent;color:#fff;border-radius:999px;padding:8px 16px;font-weight:700}
+footer{margin:56px 0 40px;font-size:12px;color:var(--mute);border-top:2px solid var(--ink);padding-top:12px}
+@media (min-width:700px){.voices{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="cover"><div class="wrap">
+  <div class="cover-top"><span>IRREGULAR COFFEE</span><span>SCAJ2026 / DAY 2 / 10.15</span></div>
+  <h1><span class="en">DAY 2 REVIEW</span>2日目ふりかえり</h1>
+  <p class="lead">10/15にブースで録った約5時間半の音声から、来場者とのやりとりを書き起こして整えました。1日目のふりかえりで決めたことが効いたかも、会話の中身から確かめています。</p>
+  <nav class="toc"><a href="#nums">数字</a><a href="#voices">来場者の声</a><a href="#tsuyo">つよぽんへ</a><a href="#team">全員で</a><a href="#log">会話ログ</a></nav>
+</div></header>
+<main class="wrap">
+<!--SUMMARY-->
+<section class="blk" id="log">
+  <div class="sec-h"><div class="no">05</div><h2>会話ログ</h2><p>聞き取りにくい所は前後から直し、自信のない語には(?)を付けています。来場者の名前やお店の名前は伏せました。</p></div>
+  <p style="font-size:14px;margin-bottom:8px"><b style="color:#d6402b">★ 続きあり</b>＝3日目以降に連絡・再訪がある会話（18件）。<b>★ 学び</b>＝次の機会にやり方を変えるヒントになった会話（7件）。</p>
+  <div class="legend"><span><mark class="hit">刺さった</mark></span><span><mark class="q">質問</mark></span><span><mark class="snag">引っかかり</mark></span><span><mark class="win">決め手</mark></span></div>
+  <div class="filters" role="group" aria-label="種類で絞る"></div>
+  <div id="cards"></div>
+</section>
+<footer>録音: soundcore Work（つよぽん着用）／文字起こしは自動のため聞き違いが残っている可能性があります。数字は録音の中で言われたものだけを載せています。</footer>
+</main>
+<script>
+const CARDS=/*CARDS*/[];
+const SHOTS=/*PHOTOS*/[];
+const LAB={hit:"刺さった",q:"質問",snag:"引っかかり",win:"決め手"};
+const IMP={follow:"★ 続きあり",learn:"★ 学び"};
+const KINDS=["全部","★ 続きあり","★ 学び","購入","商談・卸","試飲","質問だけ","出展者交流"];
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const kindOf=c=>c.kind.split(/[（(]/)[0].trim();
+const match=(c,k)=>k==="全部"||(c.imp&&IMP[c.imp[0]]===k)||kindOf(c)===k;
+const fbox=document.querySelector(".filters"),box=document.getElementById("cards");
+let cur="全部";
+const cardHtml=c=>`
+<details class="card${c.imp?" imp "+c.imp[0]:""}"><summary>${c.imp?`<span class="star">${IMP[c.imp[0]]}</span><span class="why2">${esc(c.imp[1])}</span>`:""}<span class="t">${c.t}</span><span><span class="kind">${esc(kindOf(c))}</span><span class="who">${esc(c.who)}</span></span><span class="sum">${esc(c.sum)}</span></summary>
+<div class="body">
+<div class="talk">${c.talk.map(([s,x])=>`<p><span class="sp ${s==="つよぽん"?"tsuyo":""}">${esc(s||"―")}</span>${esc(x)}</p>`).join("")}</div>
+<div class="marks">${Object.entries(c.marks).map(([k,v])=>`<div><mark class="${k}">${LAB[k]}</mark> ${esc(v)}</div>`).join("")}${c.fb?`<div><b>声</b> ${esc(c.fb)}</div>`:""}</div>
+<p class="res">結果: ${esc(c.res||"不明")}</p>
+</div></details>`;
+const shotHtml=g=>`<div class="shots"><h4><span class="mono">写真</span>${esc(g.label)}（${g.items.length}枚・${g.exact?"撮影時刻":"時刻は目安"}）</h4><div class="row">${g.items.map(n=>`<button type="button" data-n="${n}" aria-label="写真を拡大"><img loading="lazy" src="photos/t${n}.webp" alt=""></button>`).join("")}</div>${(g.talk||[]).map(([t,x])=>`<p class="tk"><b>${t}</b> ${esc(x)}</p>`).join("")}</div>`;
+function render(){
+  const cs=CARDS.filter(c=>match(c,cur)).map(c=>({m:c.min,h:cardHtml(c)}));
+  const ss=cur==="全部"?SHOTS.map(g=>({m:g.min-.5,h:shotHtml(g)})):[];
+  box.innerHTML=cs.concat(ss).sort((a,b)=>a.m-b.m).map(x=>x.h).join("");
+}
+const lb=document.createElement("dialog");lb.className="lb";lb.innerHTML='<div class="in"><img alt=""><div class="bar"><button type="button" data-d="-1">前</button><button type="button" data-d="0">閉じる</button><button type="button" data-d="1">次</button></div></div>';document.body.appendChild(lb);
+let lbList=[],lbI=0;const lbImg=lb.querySelector("img");
+const lbShow=()=>{lbImg.src="photos/p"+lbList[lbI]+".webp"};
+box.addEventListener("click",e=>{const b=e.target.closest(".shots button");if(!b)return;lbList=[...b.parentNode.querySelectorAll("button")].map(x=>x.dataset.n);lbI=lbList.indexOf(b.dataset.n);lbShow();lb.showModal()});
+lb.addEventListener("click",e=>{const d=e.target.closest("button")?.dataset.d;if(d==="0"||e.target===lb)return lb.close();if(d){lbI=(lbI+ +d+lbList.length)%lbList.length;lbShow()}});
+fbox.innerHTML=KINDS.map(k=>`<button type="button" aria-pressed="${k===cur}" data-k="${k}" class="${k.startsWith("★")?"f-"+(k.includes("続き")?"follow":"learn"):""}">${k} <span class="mono">${k==="全部"?CARDS.length:CARDS.filter(c=>match(c,k)).length}</span></button>`).join("");
+fbox.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cur=b.dataset.k;fbox.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+render();
+</script>
+</body>
+</html>
