@@ -153,17 +153,24 @@ body.tabs .filters{top:58px}
 body.tabs .card,body.tabs .fix{scroll-margin-top:122px}
 @media (max-width:699px){
   body.tabs{padding-bottom:calc(66px + env(safe-area-inset-bottom))}
-  .tabbar{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;position:fixed;top:auto;left:0;right:0;bottom:0;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  .tabbar{display:grid;grid-template-columns:repeat(var(--n,7),1fr);gap:2px;position:fixed;top:auto;left:0;right:0;bottom:0;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
   .tabbar a{font:700 11px/1.25 var(--sans);padding:9px 1px;border-radius:6px;border:0;word-break:keep-all;white-space:normal;display:flex;align-items:center;justify-content:center}
   .tabbar .l{display:none}.tabbar .s{display:inline}
   body.tabs .filters{top:0}
   body.tabs .card,body.tabs .fix{scroll-margin-top:64px}
 }
+.days{display:inline-flex;gap:4px;margin-top:18px;padding:4px;border-radius:999px;background:rgba(0,0,0,.22)}
+.days a{display:flex;flex-direction:column;align-items:center;gap:2px;color:#fff;text-decoration:none;font:900 16px/1.1 var(--sans);padding:10px 22px;border-radius:999px}
+.days a small{font:700 11px/1 var(--mono);letter-spacing:.04em;opacity:.85}
+.days a:hover{background:rgba(255,255,255,.15)}
+.days a[aria-current="page"]{background:#fff;color:var(--sign-d)}
+.days a[aria-current="page"] small{opacity:1}
 </style>
 </head>
 <body>
 <header class="cover"><div class="wrap">
   <div class="cover-top"><span class="brand"><img src="brand/irregular-icon.png" alt="irregular coffee">IRREGULAR COFFEE</span><span class="ev"><span class="scaj"><img src="brand/scaj2026.svg" alt="SCAJ2026"></span>DAY 2 / 10.15</span></div>
+  <nav class="days" aria-label="日程の切り替え"><a href="https://yukitchy.github.io/scaj2026-day1-memo/">1日目<small>10/14 水</small></a><a href="https://yukitchy.github.io/scaj2026-day2-memo/" aria-current="page">2日目<small>10/15 木</small></a></nav>
   <h1><span class="en">DAY 2 REVIEW</span>2日目ふりかえり</h1>
   <p class="lead">10/15にブースで録った約5時間半の音声から、来場者とのやりとりを書き起こして整えました。1日目のふりかえりで決めたことが効いたかも、会話の中身から確かめています。</p>
   <nav class="toc"><a href="#nums">数字</a><a href="#voices">来場者の声</a><a href="#tsuyo">つよぽんへ</a><a href="#dame">改善点</a><a href="#team">全員で</a><a href="#hansei">反省会</a><a href="#log">会話ログ</a></nav>
@@ -567,7 +574,7 @@ document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#c"]');
 const LONG={};document.querySelectorAll("nav.toc a").forEach(a=>LONG[a.getAttribute("href").slice(1)]=a.textContent);
 const secs=[...document.querySelectorAll("section.blk")],bar=document.createElement("nav");bar.className="tabbar";bar.setAttribute("aria-label","節の切り替え");
 bar.innerHTML=secs.map(s=>`<a href="#${s.id}" data-t="${s.id}"><span class="l">${LONG[s.id]||SHORT[s.id]}</span><span class="s">${SHORT[s.id]||s.id}</span></a>`).join("");
-document.querySelector("header.cover").after(bar);document.body.classList.add("tabs");
+document.querySelector("header.cover").after(bar);bar.style.setProperty("--n",secs.length);document.body.classList.add("tabs");
 const show=(id,top)=>{secs.forEach(s=>s.classList.toggle("on",s.id===id));bar.querySelectorAll("a").forEach(a=>a.dataset.t===id?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   if(top){const y=document.getElementById(id).getBoundingClientRect().top+scrollY-(mq.matches?8:bar.offsetHeight+8);if(scrollY>y||mq.matches)window.scrollTo(0,Math.max(0,y))}};
 document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute("href").slice(1),el=document.getElementById(h);
