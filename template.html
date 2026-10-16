@@ -165,6 +165,7 @@ body.tabs .card,body.tabs .fix{scroll-margin-top:122px}
 .days a:hover{background:rgba(255,255,255,.15)}
 .days a[aria-current="page"]{background:#fff;color:var(--sign-d)}
 .days a[aria-current="page"] small{opacity:1}
+mark.key{background:linear-gradient(transparent 55%,#e9c6dc 55%);font-weight:700;padding:0 1px}
 </style>
 </head>
 <body>
@@ -197,8 +198,9 @@ const kindOf=c=>c.kind.split(/[（(]/)[0].trim();
 const match=(c,k)=>k==="全部"||(c.imp&&IMP[c.imp[0]]===k)||kindOf(c)===k;
 const fbox=document.querySelector(".filters"),box=document.getElementById("cards");
 let cur="全部";
+const hlKey=(s,k)=>{const e=esc(s||"");if(!k)return e;const ek=esc(k);return e.includes(ek)?e.replace(ek,`<mark class="key">${ek}</mark>`):e};
 const cardHtml=c=>`
-<details id="c${c.n}" class="card${c.imp?" imp "+c.imp[0]:""}"><summary>${c.imp?`<span class="star">${IMP[c.imp[0]]}</span><span class="why2">${esc(c.imp[1])}</span>`:""}<span class="t">${c.t}</span><span><span class="kind">${esc(kindOf(c))}</span><span class="who">${esc(c.who)}</span></span><span class="sum">${esc(c.sum)}</span></summary>
+<details id="c${c.n}" class="card${c.imp?" imp "+c.imp[0]:""}"><summary>${c.imp?`<span class="star">${IMP[c.imp[0]]}</span><span class="why2">${esc(c.imp[1])}</span>`:""}<span class="t">${c.t}</span><span><span class="kind">${esc(kindOf(c))}</span><span class="who">${esc(c.who)}</span></span><span class="sum">${hlKey(c.sum,c.key)}</span></summary>
 <div class="body">
 <div class="talk">${c.talk.map(([s,x])=>`<p><span class="sp ${s==="つよぽん"?"tsuyo":""}">${esc(s||"―")}</span>${esc(x)}</p>`).join("")}</div>
 <div class="marks">${Object.entries(c.marks).map(([k,v])=>`<div><mark class="${k}">${LAB[k]}</mark> ${esc(v)}</div>`).join("")}${c.fb?`<div><b>声</b> ${esc(c.fb)}</div>`:""}</div>
